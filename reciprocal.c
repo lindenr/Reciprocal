@@ -33,11 +33,7 @@ int main (int argc, char *argv[])
     cur *= 10; -- digits;
     for (; digits; cur*=10, --digits)
     {
-        if (cur == 0)
-        {
-            printf(" [000...]");
-            break;
-        }
+        if (cur == 0) break;
         printf("%d", cur/num);
         cur %= num;
     }
