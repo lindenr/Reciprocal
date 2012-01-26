@@ -1,12 +1,11 @@
 #include <stdio.h>
-#include <math.h>
 
 int main (int argc, char *argv[])
 {
     long long unsigned digits = 0, num = 1, cur;
     if (argc < 2)
     {
-        printf("Usage: reciprocal [-d digits] num\nOutputs the first d digits of 1/num.\n\n");
+        printf("Usage: reciprocal [-d digits] num\nOutputs the first d (default=10) digits of 1/num.\n");
         return 0;
     }
 
@@ -34,6 +33,11 @@ int main (int argc, char *argv[])
     cur *= 10; -- digits;
     for (; digits; cur*=10, --digits)
     {
+        if (cur == 0)
+        {
+            printf(" [000...]");
+            break;
+        }
         printf("%d", cur/num);
         cur %= num;
     }
